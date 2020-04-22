@@ -5,7 +5,7 @@
 from ply.lex import lex
 
 # Token list
-tokens = [ 'NUM', 'PLUS', 'MINUS', 'TIMES', 'DIVIDE', 'LPAREN', 'RPAREN', 'ID', 'HEX']
+tokens = [ 'NUM', 'PLUS', 'MINUS', 'TIMES', 'DIVIDE', 'LPAREN', 'RPAREN', 'ID']
 
 # Ignored characters
 
@@ -20,11 +20,6 @@ t_LPAREN = r'\('
 t_RPAREN = r'\)'
 
 # Token processing functions
-def t_HEX(t):
-    r'[0][x][0-9a-f]+'
-    t.value = int(t.value, 16)
-    return t
-
 def t_NUM(t):
     r'\d+'
     t.value = int(t.value)
@@ -34,8 +29,6 @@ def t_ID(t):
     r'[a-zA-Z][a-zA-Z_0-9]*'
     # define a Symbol Table
     return t
-
-
 
 # Error handler
 def t_error(t):
@@ -47,7 +40,8 @@ lexer = lex()
 
 # Test it out
 data = '''
-3 + 4 * 10  + -20 *2  0x10 0x1f 0x1a
+3 + 4 * 10
+  + -20 *2
 '''
 
 # Give the lexer some input

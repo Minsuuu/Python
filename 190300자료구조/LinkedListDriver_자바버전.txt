@@ -1,0 +1,32 @@
+package linkedList;
+ 
+public class LinkedListDriver {
+ 
+ public static void main(String[] args) {
+  // TODO Auto-generated method stub
+  SList x = new SList();
+  
+  x.insert(5);
+  x.insert(8);
+  x.insert(1);
+  x.insert(3);
+  
+  x.printList();
+  System.out.println("===========");
+  
+  DList y = new DList();
+  
+  y.insert(5);
+  y.insert(8);
+  y.insert(1);
+  y.insert(3);
+  
+  y.printList();
+  System.out.println("===========");
+  
+  y.delete(3);
+  y.printList();
+  System.out.println("===========");
+ }
+ 
+}
